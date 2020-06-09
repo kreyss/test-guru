@@ -1,1 +1,1 @@
-VERSION ="1.0.0"
+TestGuru.version = "1.0.0"
