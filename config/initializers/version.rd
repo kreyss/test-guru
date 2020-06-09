@@ -1,1 +1,3 @@
-TestGuru.version = "1.0.0"
+module version
+TestGuru.version = "0.1.0"
+end
