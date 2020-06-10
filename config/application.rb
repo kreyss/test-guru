@@ -18,7 +18,6 @@ module TestGuru
 
 
     config.time_zone = "Kiev"
-    config.time_zone = 'UTC +03:00'
-    config.lang = "ru_RU"
+    config.i18n.default_locale = :ru
   end
 end
