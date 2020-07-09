@@ -58,9 +58,9 @@
 
 TestsUser.create(
   [
-    {test_id: 1, user_id: 1},
-    {test_id: 2, user_id: 1},
-    {test_id: 3, user_id: 2},
-    {test_id: 2, user_id: 3}
+    {tests[1].id, user[1].id},
+    {tests[2].id, user[1].id},
+    {tests[3].id, user[2].id},
+    {tests[4].id, user[3].id}
   ]
 )
