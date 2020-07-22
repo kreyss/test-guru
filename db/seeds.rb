@@ -34,33 +34,14 @@
 # Test.create(title: 'JS', level: 0, category_id: 1)
 # Test.create(title: 'Flutter', level: 3, category_id: 3)
 
-# Question.create(title: 'Any question about Html - 1', body: 'The body of question about Html - 1', test_id: 1)
-# Question.create(title: 'Any question about Ruby - 1', body: 'The body of question about Ruby - 1', test_id: 2)
-# Question.create(title: 'Any question about Kotlin - 1', body: 'The body of question about Kotlin - 1', test_id: 3)
-# Question.create(title: 'Any question about Html - 2', body: 'The body of question about Html - 2', test_id: 1)
-# Question.create(title: 'Any question about Ruby - 2', body: 'The body of question about Ruby - 2', test_id: 2)
-# Question.create(title: 'Any question about Kotlin - 2', body: 'The body of question about Kotlin - 2', test_id: 3)
-# Question.create(title: 'Any question about Html - 3', body: 'The body of question about Html - 3', test_id: 1)
-# Question.create(title: 'Any question about Ruby - 3', body: 'The body of question about Ruby - 3', test_id: 2)
-# Question.create(title: 'Any question about Kotlin - 3', body: 'The body of question about Kotlin - 3', test_id: 3)
-
-# Answer.create(body: 'The answer to this question about Html - 1', correct: true, question_id: 1)
-# Answer.create(body: 'The answer to this question about Ruby - 1', correct: true, question_id: 2)
-# Answer.create(body: 'The answer to this question about Kotlin - 1', correct: false, question_id: 3)
-# Answer.create(body: 'The answer to this question about Html - 2', correct: true, question_id: 4)
-# Answer.create(body: 'The answer to this question about Ruby - 2', correct: true, question_id: 5)
-# Answer.create(body: 'The answer to this question about Kotlin - 2', correct: false, question_id: 6)
-# Answer.create(body: 'The answer to this question about Html - 3', correct: true, question_id: 7)
-# Answer.create(body: 'The answer to this question about Ruby - 3', correct: true, question_id: 8)
-# Answer.create(body: 'The answer to this question about Kotlin - 3', correct: false, question_id: 9)
 
 # ------------------------------------------------------------------------------------------
 
 TestsUser.create(
   [
-    {tests[1].id, user[1].id},
-    {tests[2].id, user[1].id},
-    {tests[3].id, user[2].id},
-    {tests[4].id, user[3].id}
+    {test_id: 1, user_id: 1},
+    {test_id: 2, user_id: 1},
+    {test_id: 3, user_id: 2},
+    {test_id: 2, user_id: 3}
   ]
 )
