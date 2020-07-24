@@ -9,39 +9,36 @@
 #Test.create(title: "Default Title")
 #Answer.create(body: "Default Answer", correct: false)
 
-# ------------------------------------------------------------------------------------------
+Category.create(title: 'Backend')
+Category.create(title: 'Frontend')
 
-# Category.delete_all
-# User.delete_all
-# Test.delete_all
-# Question.delete_all
-# Answer.delete_all
+Test.create(title: 'Ruby', category: Category.first)
+Test.create(title: 'Ruby on Rails', category: Category.first, level: 2)
+Test.create(title: 'JavaScript', category: Category.last)
+Test.create(title: 'CSS', category: Category.last)
+Test.create(title: 'Python', category: Category.first, level: 2)
 
-# ------------------------------------------------------------------------------------------
+Test.all.each do |test|
+  questions = []
+  8.times { questions << "#{FFaker::Lorem.sentence}?" }
 
-# Category.create(title: 'Frontend')
-# Category.create(title: 'Backend')
-# Category.create(title: 'Mobile Development')
+  questions.each do |answer|
+    Question.create(body: answer, test: test)
+  end
+end
 
-# User.create(user_name: 'Mike', email: 'mike1@yahoo.com', password: '12345')
-# User.create(user_name: 'Dave', email: 'dave1@yahoo.com', password: '54321')
-# User.create(user_name: 'John', email: 'john1@yahoo.com', password: '12312')
+Question.all.each do |question|
+  answers = []
+  4.times { answers << FFaker::Lorem.sentence }
 
-# Test.create(title: 'Ruby', level: 2, category_id: 2)
-# Test.create(title: 'Html', level: 0, category_id: 1)
-# Test.create(title: 'Kotlin', level: 3, category_id: 3)
-# Test.create(title: 'Elixir', level: 2, category_id: 2)
-# Test.create(title: 'JS', level: 0, category_id: 1)
-# Test.create(title: 'Flutter', level: 3, category_id: 3)
+  answers.each { |answer| Answer.create(body: answer, question: question) }
+  question.answers.sample.update(correct: true)
+end
 
-
-# ------------------------------------------------------------------------------------------
-
-TestsUser.create(
-  [
-    {test_id: 1, user_id: 1},
-    {test_id: 2, user_id: 1},
-    {test_id: 3, user_id: 2},
-    {test_id: 2, user_id: 3}
-  ]
+user = User.create(
+  first_name: FFaker::Name.first_name,
+  last_name: FFaker::Name.last_name,
+  email: FFaker::Internet.email
 )
+
+Test.all.each { |test| TestsUser.create(user: user, test: test) }
