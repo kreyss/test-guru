@@ -9,13 +9,13 @@
 #Test.create(title: "Default Title")
 #Answer.create(body: "Default Answer", correct: false)
 
-Category.create(title: ['Backend','Frontend'])
+Category.with_tags(title: ['Backend','Frontend'])
 
-Test.create(title: 'Ruby', category: Category.first)
-Test.create(title: 'Ruby on Rails', category: Category.first, level: 2)
-Test.create(title: 'JavaScript', category: Category.last)
-Test.create(title: 'CSS', category: Category.last)
-Test.create(title: 'Python', category: Category.first, level: 2)
+Test.create(title: 'Ruby', category: Category.with_tags)
+Test.create(title: 'Ruby on Rails', category: Category.with_tags, level: 2)
+Test.create(title: 'JavaScript', category: Category.with_tags)
+Test.create(title: 'CSS', category: Category.with_tags)
+Test.create(title: 'Python', category: Category.with_tags, level: 2)
 
 Test.all.each do [test]
   questions = []
