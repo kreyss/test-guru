@@ -9,20 +9,21 @@
 #Test.create(title: "Default Title")
 #Answer.create(body: "Default Answer", correct: false)
 
-categories = Category.create(title: 'Backend','Frontend')
+cat = ['Backend','Frontend']
+categories = Category.create(title: cat)
 
-Test.create(title: 'Ruby', category: categories)
-Test.create(title: 'Ruby on Rails', category: categories, level: 2)
-Test.create(title: 'JavaScript', category: categories)
-Test.create(title: 'CSS', category: categories)
-Test.create(title: 'Python', category: categories, level: 2)
+category.tests.create(title: 'Ruby', category: categories)
+category.tests.create(title: 'Ruby on Rails', category: categories, level: 2)
+category.tests.create(title: 'JavaScript', category: categories)
+category.tests.create(title: 'CSS', category: categories)
+category.tests.create(title: 'Python', category: categories, level: 2)
 
 Test.all.each do |test|
   questions = []
   8.times { questions << "#{FFaker::Lorem.sentence}?" }
 
   questions.each do |answer|
-    Question.create(body: answer, test: test)
+    test.questions.create(body: answer, test: test)
   end
 end
 
@@ -30,7 +31,7 @@ Question.all.each do |question|
   answers = []
   4.times { answers << FFaker::Lorem.sentence }
 
-  answers.each { [answer] Answer.create(body: answer, question: question) }
+  question.answers.create { [answer] Answer.create(body: answer, question: question) }
 end
 
 user = User.create(
