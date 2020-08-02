@@ -10,13 +10,9 @@
 #Answer.create(body: "Default Answer", correct: false)
 
 cat = ['Backend','Frontend']
-categories = Category.create(title: cat)
+categories = Category.create([{title: cat[0]}, {title: cat[1}])
 
-category.tests.create(title: 'Ruby', category: categories)
-category.tests.create(title: 'Ruby on Rails', category: categories, level: 2)
-category.tests.create(title: 'JavaScript', category: categories)
-category.tests.create(title: 'CSS', category: categories)
-category.tests.create(title: 'Python', category: categories, level: 2)
+tests = Test.create([{title: 'Ruby', category: categories[0]},{title: 'Ruby on Rails', category: categories[1], level: 2},{title: 'JavaScript', category: categories[0]},{title: 'CSS', category: categories[1]},{title: 'Python', category: categories[0], level: 2}])
 
 Test.all.each do |test|
   questions = []
