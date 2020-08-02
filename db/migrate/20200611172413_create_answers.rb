@@ -1,9 +1,11 @@
 class CreateAnswers < ActiveRecord::Migration[6.0]
   def change
-    def change
-    create_join_table :answers, :tests_users do |t|
-      t.index [:answer_id, :tests_user_id]
-      t.index [:tests_user_id, :answer_id]
+    create_table :answers do |t|
+      t.text :body
+      t.boolean :correct
+      t.references :question, foreign_key: true
+
+      t.timestamps
     end
   end
 end
