@@ -16,6 +16,8 @@ tests = Test.create([{title: 'Ruby', category: categories[0]},{title: 'Ruby on R
 
 question = Question.create([{question: tests}])
 
+answers = Answers.create([{answers: tests, question: question}])
+
 users = Users.create(
   first_name: FFaker::Name.first_name,
   last_name: FFaker::Name.last_name,
