@@ -14,9 +14,7 @@ categories = Category.create([{title: cat[0]}, {title: cat[1}])
 
 tests = Test.create([{title: 'Ruby', category: categories[0]},{title: 'Ruby on Rails', category: categories[1], level: 2},{title: 'JavaScript', category: categories[0]},{title: 'CSS', category: categories[1]},{title: 'Python', category: categories[0], level: 2}])
 
-  question = Question.create([{ body: answer, question: question }])
-
-question = Question.create([{body: answer, question: question}])
+question = Question.create([{question: tests}])
 
 users = Users.create(
   first_name: FFaker::Name.first_name,
