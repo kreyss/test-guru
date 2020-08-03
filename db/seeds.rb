@@ -14,23 +14,9 @@ categories = Category.create([{title: cat[0]}, {title: cat[1}])
 
 tests = Test.create([{title: 'Ruby', category: categories[0]},{title: 'Ruby on Rails', category: categories[1], level: 2},{title: 'JavaScript', category: categories[0]},{title: 'CSS', category: categories[1]},{title: 'Python', category: categories[0], level: 2}])
 
-Test.all.each do |test|
-  questions = []
-  8.times { questions << "#{FFaker::Lorem.sentence}?" }
+  question = Question.create([{ body: answer, question: question }])
 
-  questions.each do |answer|
-    test.questions.create(body: answer, test: test)
-  end
-end
-
-Question.all.each do |question|
-  answers = []
-  4.times { answers << FFaker::Lorem.sentence }
-
-  question.answers.create { [answer] Answer.create(body: answer, question: question) }
-end
-
-user = User.create(
+users = Users.create(
   first_name: FFaker::Name.first_name,
   last_name: FFaker::Name.last_name,
   email: FFaker::Internet.email
