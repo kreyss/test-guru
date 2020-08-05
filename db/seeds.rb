@@ -10,18 +10,18 @@
 #Answer.create(body: "Default Answer", correct: false)
 
 cat = ['Backend','Frontend']
-categories = Category.create([{title: cat[0]}, {title: cat[1}])
+categories = Category.create([{title: cat[0]}, {title: cat[1]}])
 
-tests = Test.create([{title: 'Ruby', category: categories[0]},{title: 'Ruby on Rails', category: categories[1], level: 2},{title: 'JavaScript', category: categories[0]},{title: 'CSS', category: categories[1]},{title: 'Python', category: categories[0], level: 2}])
+tests = Test.create([{title: 'Ruby', category: categories[0], level: 1},{title: 'Ruby on Rails', category: categories[1], level: 2},{title: 'JavaScript', category: categories[0], level: 1},{title: 'CSS', category: categories[1], level: 2},{title: 'Python', category: categories[0], level: 2}])
 
-question = Question.create([{question: tests}])
+question = Question.create(title: "Default Title", body: '1', test: tests[1])
 
-answers = Answers.create([{answers: tests, question: question}])
+answers = Answer.create(body: 'Default Answer', correct: false, question: question)
 
 users = Users.create(
-  first_name: FFaker::Name.first_name,
-  last_name: FFaker::Name.last_name,
-  email: FFaker::Internet.email
-)
+  user_name: 'FFaker::Name.first_name',
+  email: 'asd@asd.asd',
+  password: 'qweqwe'
+)	
 
-Test.all.each { [test] TestsUser.create(user: user, test: test) }
+#Test.all.each { [test] TestsUser.create(user: user, test: test) }

@@ -10,25 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_192300) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 2020_07_08_201119) do
 
   create_table "answers", force: :cascade do |t|
-    t.string "body", null: false
-    t.boolean "correct", default: false
-    t.integer "question_id", null: false
+    t.text "body"
+    t.boolean "correct", default: true
+    t.integer "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
-  end
-
-  create_table "answers_tests_users", id: false, force: :cascade do |t|
-    t.bigint "answer_id", null: false
-    t.bigint "tests_user_id", null: false
-    t.index ["answer_id", "tests_user_id"], name: "index_answers_tests_users_on_answer_id_and_tests_user_id"
-    t.index ["tests_user_id", "answer_id"], name: "index_answers_tests_users_on_tests_user_id_and_answer_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -38,38 +28,42 @@ ActiveRecord::Schema.define(version: 2020_07_08_192300) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text "body", null: false
-    t.bigint "test_id"
+    t.string "title"
+    t.text "body"
+    t.integer "test_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
   create_table "tests", force: :cascade do |t|
-    t.string "title", null: false
-    t.integer "level", default: 1, null: false
-    t.bigint "category_id"
+    t.string "title"
+    t.integer "level", null: false
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
   end
 
   create_table "tests_users", force: :cascade do |t|
-    t.bigint "test_id"
-    t.bigint "user_id"
+    t.integer "test_id"
+    t.integer "user_id"
     t.string "status", default: "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["test_id"], name: "index_tests_users_on_test_id"
     t.index ["user_id"], name: "index_tests_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
+    t.string "user_name", null: false
+    t.string "email", null: false
+    t.string "password", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "questions", "tests"
+  add_foreign_key "tests", "categories"
 end
