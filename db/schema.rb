@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_201119) do
+ActiveRecord::Schema.define(version: 2020_08_23_235734) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body"
@@ -42,7 +42,10 @@ ActiveRecord::Schema.define(version: 2020_07_08_201119) do
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "authur_id"
+    t.index ["authur_id"], name: "index_tests_on_authur_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["level", "title"], name: "index_tests_on_level_and_title", unique: true
   end
 
   create_table "tests_users", force: :cascade do |t|
@@ -61,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_07_08_201119) do
     t.string "password", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "role"
   end
 
   add_foreign_key "answers", "questions"
