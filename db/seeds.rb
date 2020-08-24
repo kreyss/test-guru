@@ -15,10 +15,10 @@ users = Users.create(
   password: 'qweqwe'
 )
 
-cadmin = User.create(
+cadmin = Users.create(
   user_name: 'Admin',
   email: 'admin@example.com',
-  role: 'admin'
+  role: 'admin',
   password: 'admin'
 )
 cat = ['Backend','Frontend']

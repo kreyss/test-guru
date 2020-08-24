@@ -37,13 +37,13 @@ ActiveRecord::Schema.define(version: 2020_08_23_235734) do
   end
 
   create_table "tests", force: :cascade do |t|
-    t.string "title"
-    t.integer "level", null: false
-    t.integer "category_id"
+    t.string "title", null: false
+    t.integer "level", default: 1, null: false
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "authur_id"
-    t.index ["authur_id"], name: "index_tests_on_authur_id"
+    t.bigint "author_id"
+    t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["level", "title"], name: "index_tests_on_level_and_title", unique: true
   end
