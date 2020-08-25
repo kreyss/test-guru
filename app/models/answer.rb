@@ -6,9 +6,4 @@ class Answer < ApplicationRecord
 
   scope :correct, -> { where(correct: true) }
 
-  private
-
-  def answers_count
-    errors.add(:answer, 'number is too much') if question.answers.count >= 4
-  end
 end
