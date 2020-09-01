@@ -15,13 +15,12 @@ users = Users.create(
   password: 'qweqwe'
 )
 
-admin = User.create(
+cadmin = Users.create(
   user_name: 'Admin',
   email: 'admin@example.com',
-  role: 'admin'
+  role: 'admin',
   password: 'admin'
 )
-
 cat = ['Backend','Frontend']
 categories = Category.create([{title: cat[0]}, {title: cat[1]}])
 
@@ -29,6 +28,6 @@ tests = Test.create([{title: 'Ruby', category: categories[0], level: 1, author: 
 
 question = Question.create(title: "Default Title", body: '1', test: tests[1])
 
-answers = Answer.create(body: 'Default Answer', correct: false, question: question)	
-
+answers = Answer.create(body: 'Default Answer', correct: false, question: question)
+	
 #Test.all.each { [test] TestsUser.create(user: user, test: test) }
