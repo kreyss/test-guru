@@ -1,11 +1,11 @@
 class TestsController < ApplicationController
 
   def index 
-  	@tests = Test.all
+    @tests = Test.all
   end
 
   def show
-  	@test = Test.find(params[:id])
+    @test = Test.find(params[:id])
   end 
 
 end
