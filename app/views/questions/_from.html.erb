@@ -1,0 +1,18 @@
+<%= from_with(model: [@test, @question]) do |f| %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_fiend :title %>  	
+  </p>
+  <p>
+    <%= f.ladel :body %>
+    <%= f.text_fiend :body %>	
+  </p>
+  <p>
+    <%= f.submit %>	
+  </p>
+<% end %>
+  <p>
+    <%= link_to 'back', test_path(@question.test) %>
+  </p>
+  
