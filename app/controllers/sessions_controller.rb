@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to cookies[:original_path]
+      redirect_to cookies[:original_path] || root_path
     else
       flash.now[:alert] = 'Confirm your email and password'
       render :new

@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
-    cookies[:original_path] = request.fullpath
     
     unless current_user
       redirect_to root_path, alert: 'Confirm your email and password'

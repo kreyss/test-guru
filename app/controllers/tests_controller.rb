@@ -15,7 +15,8 @@ class TestsController < ApplicationController
   def create
   	@test = Test.new(test_params)
 
-  	if @test.save
+  	if 
+      @test.save
   		redirect_to test_path(@test)
     else 
     	render :new
@@ -26,7 +27,8 @@ class TestsController < ApplicationController
   end
 
   def update
-  	if @test.update(test_params)
+  	if 
+      @test.update(test_params)
   		redirect_to @test
   	else 
   		render :edit
