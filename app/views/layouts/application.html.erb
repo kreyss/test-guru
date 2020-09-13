@@ -15,7 +15,6 @@
       <p class="nav user">Welcome<%= current_user.first_name %>!</p>
       <p class="nav user"><%= link_to 'Exit', :logout, method: :delete %></p>
     <% end %>
-
     <main>
       <%= yield %>
     </main>>
