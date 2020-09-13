@@ -9,12 +9,11 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
-  	unless current_user
-      redirect_to root_path, alert: 'Confirm your email and password'
-    end
-
+  unless current_user
     cookies[:original_path] = request.fullpath
+    redirect_to root_path, alert: 'Confirm your email and password'
   end
+end
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
