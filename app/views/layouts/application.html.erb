@@ -4,12 +4,17 @@
     <title>TestGuru</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <% flash.now[:notice] = "Hello, #{current_user.first_name}!" %>
+      <p class="nav user">
+        Welcome Guru<b><%= current_user.first_name %></b>!
+        <%= link_to 'Log off', destroy_user_session_path, method: :delete %>
+      </p>
+    <% end %>
+
     <main>
       <%= yield %>
     </main>>

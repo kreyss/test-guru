@@ -15,7 +15,7 @@ users = Users.create(
   password: 'qweqwe'
 )
 
-cadmin = Users.create(
+admin = Users.create(
   user_name: 'Admin',
   email: 'admin@example.com',
   role: 'admin',
@@ -30,4 +30,5 @@ question = Question.create(title: "Default Title", body: '1', test: tests[1])
 
 answers = Answer.create(body: 'Default Answer', correct: false, question: question)
 	
+
 #Test.all.each { [test] TestsUser.create(user: user, test: test) }
