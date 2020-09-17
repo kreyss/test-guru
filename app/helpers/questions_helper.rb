@@ -1,10 +1,10 @@
 module QuestionsHelper
 
-  def questions_helper
+  def questions_helper(question)
     if @question.new_record?
-      "Create New #{@question.test.title} Question"
+      "Create New #{@question.tests.title}"
     else 
-      "Edit #{@question.test.title} Question"
+      "Edit #{@question.tests.title}"
     end
   end
 end

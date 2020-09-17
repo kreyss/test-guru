@@ -1,0 +1,10 @@
+<% model = question.new_record? ? [test, question] : question %>
+<%= form_with model: [:admin, model] do |form| %>
+  <p>
+    <%= form.hidden_field :test_id, value: test.id %>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p>
+  <p><%= form.submit text="#{question.new_record? ? 'Create a' : 'Edit'}"%></p>
+<% end %>
+<p><%= link_to 'Back to', admin_test_path(test) %></p>

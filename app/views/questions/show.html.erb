@@ -1,15 +1,16 @@
-<h3><%= @question.title %> Question</h3>
-<div><%= @question.body %></div>
+<h1>Question about <%= @question.test.title %></h1>
 
-<h4>Answers:</h4>
+<p>
+  <%= @question.body %>
+</p>
 
-<%= link_to 'new answer', new_question_answer_path(@question) %>
+<h2>Answers:</h2>
+
+<%= link_to 'New answer', new_question_answer_path(@question) %>
 
 <ol>
   <%= render @question.answers %>
 </ol>
 
-<p>
-  <%= link_to 'edit', edit_question_path(@question) %>
-	<%= link_to 'back', test_path(@question.test) %>
-</p>
+<%= link_to 'Edit', edit_question_path(@question) %>
+<%= link_to 'Back to', admin_test_path(@question.test) %>

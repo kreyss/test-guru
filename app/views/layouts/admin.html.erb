@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Panel | TestGuru</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+      <% flash.now[:notice] = "Hello, #{current_user.first_name}!" %>
+    <% end %>
+
+    <%= render 'admin/nav' %>
+    <%= render 'shared/flash' %>
+
+    <%= yield %>
+    <%= render 'shared/footer'%>
+  </body>
+</html>
