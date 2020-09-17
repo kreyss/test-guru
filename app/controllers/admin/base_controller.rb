@@ -1,13 +1,13 @@
 class Admin::BaseController < ApplicationController
-	layout 'admin'
+  layout 'admin'
 
-	before_action :admin:required!
+  before_action :admin:required!
 
-	private
+  private
 
-	def admin_required!
-		if !current_user.admin?
-			redirect_to root_path, alert: "You are not authorized to view this page"
-		end
-	end
+  def admin_required!
+    if !current_user.admin?
+      redirect_to root_path, alert: "You are not authorized to view this page"
+    end
+  end
 end
