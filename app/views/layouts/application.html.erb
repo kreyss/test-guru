@@ -4,19 +4,22 @@
     <title>TestGuru</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
   </head>
 
   <body>
     <% if user_signed_in? %>
-      <% flash.now[:notice] = "Hello, #{current_user.first_name}!" %>
+      <% flash.now[:notice] = "#{t('hello')} #{current_user.first_name}!" %>
       <p class="nav user">
-        Welcome Guru<b><%= current_user.first_name %></b>!
-        <%= link_to 'Log off', destroy_user_session_path, method: :delete %>
+        <%= t('welcome') %><b><%= current_user.first_name %></b>!
+        <%= link_to t('buttons.logout'), destroy_user_session_path, method: :delete %>
       </p>
     <% end %>
-    <main>
-      <%= yield %>
-    </main>>
-    <%= render 'shared/footer' %>
+
+
+    <%= render 'shared/flash' %>
+
+    <%= yield %>
+    <%= render 'shared/footer'%>
   </body>
 </html>
