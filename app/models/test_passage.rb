@@ -5,7 +5,7 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
-  аssessment = 85
+  SUCCESS = 85
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
@@ -25,7 +25,7 @@ class TestPassage < ApplicationRecord
   end
 
   def passed?
-    percent >= аssessment
+    percent >= SUCCESS
   end
 
   def total_questions
