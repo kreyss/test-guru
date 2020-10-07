@@ -10,4 +10,9 @@ class Admin::BaseController < ApplicationController
       redirect_to root_path, alert: "You are not authorized to view this page"
     end
   end
+
+  def set_locale
+    I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
+  end
+
 end
