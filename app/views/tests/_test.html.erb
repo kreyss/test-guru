@@ -1,14 +1,9 @@
 <tr>
-  <td>
-    <b><%= link_to "#{test.title} test", test_path(test) %></b>
-  </td>
-  <td>
-    <%= test.level %>
-  </td>
-  <td>
-    <%= pluralize(test.questions.count, 'question') %>
-  </td>
-  <td>
-    <%= button_to 'start', start_test_path(test) %>
-  </td>
+  <td><%= test.id %></td>
+  <td><%= test.title %></td>
+  <td align="center"><%= test.level %></td>
+  <td><%= test.category.title %></td>
+  <td><%= test.author&.full_name %></td>
+  <td align="center"><%= test.questions.count %></td>
+  <td><%= button_to t('buttons.start'), start_test_path(test) %></td>
 </tr>

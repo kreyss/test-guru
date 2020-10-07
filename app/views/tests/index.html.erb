@@ -1,23 +1,18 @@
-<h3>Tests List</h3>
+<h1><%= t('tests.index.header') %></h1>
 
-<p>
-  <table>
-    <thead>
-      <tr>
-        <td><b>title</b></td>
-        <td><b>level</b></td>
-        <td><b>questions</b></td>
-        <td><b>actions</b></td>
-      </tr>
-    </thead>
-    <tbody>
-	   <%= render @tests %>
-     <tr>
-       <td>
-         <hr>
-         <%= link_to 'new test', new_test_path %>
-       </td>
-     </tr>
-    </tbody>
-  </table>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th><%= t('activerecord.attributes.test.title') %></th>
+      <th><%= t('activerecord.attributes.test.level') %></th>
+      <th><%= t('activerecord.attributes.category.title') %></th>
+      <th><%= t('tests.index.author') %></th>
+      <th><% t('tests.index.cnt_questions') %></th>
+      <th><%= t('actions') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @tests %>
+  </tbody>
+</table>
