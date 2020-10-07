@@ -17,16 +17,6 @@ ru:
         body: 'Вопрос'
     select:
       prompt: 'Выберите категорию'
-  activerecord:
-    attributes:
-      test:
-        title: 'Тест'
-        level: 'уровень'
-        category_id: 'Category'
-      category:
-        title: 'Category'
-      question:
-        body: 'Question'
 
   tests:
     index:
@@ -54,10 +44,7 @@ ru:
     next: 'Следующий'
     all_tests: 'Все тесты'
     logout: 'Выйти'
-    login: 'Войти'
-    signup: 'Зарегистрироваться'
     new_test: 'Новый тест'
-    all_tests: 'Все тесты'
     show: 'Показать'
     edit: 'Редактировать'
     delete: 'Удалить'
@@ -66,4 +53,3 @@ ru:
     more: 'еще'
   confirmations:
     sure: 'Вы уверены?'
-    
