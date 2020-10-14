@@ -11,9 +11,7 @@ class GistQuestionService
   end
 
   def success?
-    return unless @client.http_client.last_response
-
-    @client.http_client.last_response.status == 201 ? true : false
+   @client.http_client.last_response&.status == 201 
   end
 
   private
