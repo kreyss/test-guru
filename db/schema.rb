@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 2020_08_23_235734) do
     t.datetime "updated_at", null: false
   end
 
+    create_table "gists", force: :cascade do |t|
+    t.string "url"
+    t.bigint "question_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_gists_on_question_id"
+    t.index ["user_id"], name: "index_gists_on_user_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -95,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_08_23_235734) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "gists", "questions"
+  add_foreign_key "gists", "users"
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
   add_foreign_key "tests", "categories"

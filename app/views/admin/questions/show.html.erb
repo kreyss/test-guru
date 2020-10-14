@@ -1,15 +1,17 @@
-<h3><%= @question.title %> Question</h3>
-<div><%= @question.body %></div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="">
+      <b>
+        <%= @question.body %>
+      </b>
 
-<h4>Answers:</h4>
+      <ul>
+        <% @question.answers.each do |answer| %>
+          <li><%= answer.body %></li>
+        <% end %>
+      </ul>
 
-<%= link_to 'new answer', new_question_answer_path(@question) %>
-
-<ol>
-  <%= render @question.answers %>
-</ol>
-
-<p>
-  <%= link_to 'edit', edit_question_path(@question) %>
-	<%= link_to 'back', test_path(@question.test) %>
-</p>
+      <%= link_to 'Back', admin_gists_path %>
+    </div>
+  </div>
+</div>
