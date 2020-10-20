@@ -5,9 +5,10 @@ document.addEventListener('turbolinks:load', function () {
 
     if (this.value == '') {
        return
+       messageBox.classList.remove('red')
+       messageBox.classList.remove('green')
     } 
     if (this.value != passwordField.value){
-      return
       messageBox.innerText = 'Passwords are equal'
       messageBox.classList.remove('red')
       messageBox.classList.add('green')
@@ -18,7 +19,6 @@ document.addEventListener('turbolinks:load', function () {
     }
   })
 
-  setProgressBar();
 })
 
 function setProgressBar() {
