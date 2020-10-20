@@ -1,8 +1,3 @@
-//= require popper
-//= require bootstrap-sprockets
-//= require_tree .
-
-
 document.addEventListener('turbolinks:load', function () {
   $('#user_password_confirmation').on('keyup', function () {
     let passwordField = document.querySelector('#user_password')
@@ -11,7 +6,7 @@ document.addEventListener('turbolinks:load', function () {
     if (this.value == '') {
       return
     } 
-    if (this.value < passwordField.value) {
+    if (this.value == passwordField.value) {
       messageBox.innerText = 'Passwords are equal'
       messageBox.classList.remove('red')
       messageBox.classList.add('green')
