@@ -4,9 +4,10 @@ document.addEventListener('turbolinks:load', function () {
     let messageBox    = document.querySelector('p.confirmation-message')
 
     if (this.value == '') {
-      return
+       return
     } 
-    if (this.value == passwordField.value) {
+    if (this.value != passwordField.value){
+      return
       messageBox.innerText = 'Passwords are equal'
       messageBox.classList.remove('red')
       messageBox.classList.add('green')
@@ -16,4 +17,20 @@ document.addEventListener('turbolinks:load', function () {
       messageBox.classList.add('red')
     }
   })
+
+  setProgressBar();
 })
+
+function setProgressBar() {
+  let progressBar = document.getElementById('progress-bar')
+
+  if (progressBar) {
+    let questionNumber = progressBar.dataset.questionNumber;
+    let questionsCount = progressBar.dataset.questionsCount;
+    let width = 100 * questionNumber/questionsCount;
+
+    let progressLine = document.getElementById('progress-bar-line');
+    progressLine.style.width = width + '%';
+    progressLine.innerText = Math.round(width) + '%';
+  }
+}
