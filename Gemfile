@@ -31,6 +31,11 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Auth
 gem 'devise', '~> 4.0'
 
+# UI
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.4.1'
+gem 'octicons_helper'
+
 # Localization
 gem 'rails-i18n'
 
