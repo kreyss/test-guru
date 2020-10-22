@@ -4,19 +4,15 @@ document.addEventListener('turbolinks:load', function () {
     let messageBox    = document.querySelector('p.confirmation-message')
 
     if (this.value == '') {
-      messageBox.classList.remove('red')
-      messageBox.classList.remove('green')
-    return
-    } 
+      messageBox.innerText = ''
     if (this.value == passwordField.value){
-    messageBox.innerText = 'Passwords are not equal'
-    messageBox.classList.remove('green')
-    messageBox.classList.add('red')
-    return
+      messageBox.innerText = 'Passwords are not equal'
+      messageBox.classList.remove('green')
+      messageBox.classList.add('red')
     }
-    messageBox.innerText = 'Passwords are equal'
-    messageBox.classList.remove('red')
-    messageBox.classList.add('green')
+      messageBox.innerText = 'Passwords are equal'
+      messageBox.classList.remove('red')
+      messageBox.classList.add('green')
   })
 
 })
