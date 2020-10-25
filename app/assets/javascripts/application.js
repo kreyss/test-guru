@@ -15,6 +15,8 @@ document.addEventListener('turbolinks:load', function () {
       messageBox.classList.add('green')
   })
 
+setProgressBar();
+
 })
 
 function setProgressBar() {
