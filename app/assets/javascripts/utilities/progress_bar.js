@@ -1,13 +1,11 @@
-function setProgressBar() {
-  let progressBar = document.getElementById('progress-bar')
+document.addEventListener('turbolinks:load', function () {
+    let progressContainer = document.querySelector('.progress-container');
+    let progressFiller = document.querySelector('.progress-filler');
 
-  if (progressBar) {
-    let questionNumber = progressBar.dataset.questionNumber;
-    let questionsCount = progressBar.dataset.questionsCount;
-    let width = 100 * questionNumber/questionsCount;
+    if (progressContainer && progressFiller) {
+        let currentQuestionIndex = progressContainer.dataset.currentQuestionIndex;
+        let questionsCount = progressContainer.dataset.questionsCount;
 
-    let progressLine = document.getElementById('progress-bar-line');
-    progressLine.style.width = width + '%';
-    progressLine.innerText = Math.round(width) + '%';
-  }
-}
+        progressFiller.style.width = currentQuestionIndex / questionsCount * 100 + '%';
+    }
+});
