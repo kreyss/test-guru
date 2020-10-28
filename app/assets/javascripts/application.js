@@ -10,7 +10,11 @@ document.addEventListener('turbolinks:load', function () {
 
     if (this.value == '') {
       messageBox.innerText = ''
-    } else if (this.value == passwordField.value) {
+      messageBox.classList.remove('red')
+      messageBox.classList.remove('green')
+      return
+    } 
+    if (this.value == passwordField.value) {
       messageBox.innerText = 'Passwords are equal'
       messageBox.classList.remove('red')
       messageBox.classList.add('green')
