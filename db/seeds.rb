@@ -9,18 +9,19 @@
 #Test.create(title: "Default Title")
 #Answer.create(body: "Default Answer", correct: false)
 
-users = Users.create(
-  user_name: 'FFaker::Name.first_name',
-  email: 'asd@asd.asd',
-  password: 'qweqwe'
-)
-
-admin = Users.create(
+admin = User.create(
   user_name: 'Admin',
   email: 'admin@example.com',
   role: 'admin',
   password: 'admin'
 )
+
+user = User.create(
+  user_name: 'FFaker::Name.first_name',
+  email: 'asd@asd.asd',
+  password: 'qweqwe'
+)
+
 cat = ['Backend','Frontend']
 categories = Category.create([{title: cat[0]}, {title: cat[1]}])
 

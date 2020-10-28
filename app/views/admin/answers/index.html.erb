@@ -1,11 +1,13 @@
-<h1><%= @question.test.title %></h1>
-<h3>Question: <%= @question.body %></h3>
+<div class="row justify-content-center">
+  <div class="col">
+    <h4 align="left"><%= @question.test.title %></h4>
 
-<p>
-  <%= link_to 'New answer', new_admin_question_answer_path(@question) %>
-</p>
+    <div class="test-header">
+      <h4><%= @question.body %></h4>
+      <%= link_to 'New answer', new_admin_question_answer_path(@question), class: "btn btn-primary mb-3" %>
+    </div>
 
-<table>
+<table class="table table-hovered">
   <thead>
     <tr>
       <th></th>
@@ -19,4 +21,6 @@
   </tbody>
 </table>
 
-<p><%= link_to 'Back to', admin_test_path(@question.test) %></p>
+    <%= link_to 'Back to', admin_test_path(@question.test), class: "btn btn-primary mb-3" %>
+  </div>
+</div>

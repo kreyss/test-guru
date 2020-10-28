@@ -12,3 +12,5 @@ class Answer < ApplicationRecord
     errors.add(:answer, 'number is too much') if question.answers.count >= 4
   end
 end
+
+end	
