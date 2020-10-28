@@ -1,16 +1,10 @@
-@import "bootstrap";
 @import "typography/icons";
 @import "global";
 
-#progress-bar {
-  width: 100%;
-  background-color: lightgrey;
+.red {
+  color: red;
 }
 
-#progress-bar-line {
-  width: 1%;
-  height: 30px;
-  background-color: green;
-  text-align: center;
-  color: #ffffff;
+.green {
+  color: forestgreen;
 }
