@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_23_235734) do
+ActiveRecord::Schema.define(version: 2020_10_08_185106) do
+
+  create_table "add_to_users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_add_to_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_add_to_users_on_reset_password_token", unique: true
+  end
 
   create_table "answers", force: :cascade do |t|
     t.text "body"
@@ -27,12 +39,12 @@ ActiveRecord::Schema.define(version: 2020_08_23_235734) do
     t.datetime "updated_at", null: false
   end
 
-    create_table "gists", force: :cascade do |t|
+  create_table "gists", force: :cascade do |t|
     t.string "url"
-    t.bigint "question_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "question_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_gists_on_question_id"
     t.index ["user_id"], name: "index_gists_on_user_id"
   end
@@ -51,8 +63,8 @@ ActiveRecord::Schema.define(version: 2020_08_23_235734) do
     t.integer "test_id"
     t.integer "current_question_id"
     t.integer "correct_questions", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -69,45 +81,24 @@ ActiveRecord::Schema.define(version: 2020_08_23_235734) do
     t.index ["category_id"], name: "index_tests_on_category_id"
   end
 
-  create_table "tests_users", force: :cascade do |t|
-    t.integer "test_id"
-    t.integer "user_id"
-    t.string "status", default: "active"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["test_id"], name: "index_tests_users_on_test_id"
-    t.index ["user_id"], name: "index_tests_users_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "user_name", null: false
-    t.string "email", default: ""
+    t.string "email", null: false
     t.string "password", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role"
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
+    t.string "password_digest"
     t.string "type", default: "User", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email"
     t.index ["type"], name: "index_users_on_type"
   end
 
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
-  add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
+  add_foreign_key "test_passages", "current_questions"
+  add_foreign_key "test_passages", "tests"
+  add_foreign_key "test_passages", "users"
   add_foreign_key "tests", "categories"
 end
