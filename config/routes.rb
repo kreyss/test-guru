@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :add_type_to_users
   devise_for :add_to_users
-  root 'home#index'
+  root 'tests#index'
 
   #devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
 
